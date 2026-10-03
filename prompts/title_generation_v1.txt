@@ -1,0 +1,8 @@
+Generate grounded title candidates only from the supplied VerifiedGroundedStory.
+
+Do not use raw candidates, unvalidated LLM output, unrelated stories, or model memory.
+Do not add facts to make titles more exciting.
+Every factual title must reference verified claim IDs.
+Avoid unsupported hype such as "changes everything", "will replace", "revolutionary", "game-changing", "the end of", "you need to", or unsupported numeric claims.
+If evidence is uncertain, preserve uncertainty.
+Return a small set of accurate, concise, specific title candidates.

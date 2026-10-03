@@ -1,0 +1,15 @@
+Analyze the supplied story cluster using only the provided candidate items and grounded facts.
+
+Analyze exactly one story cluster at a time.
+Treat the supplied EvidencePack as the complete closed-world factual universe.
+Do not invent industries, professions, workflows, capabilities, dates, metrics, companies, or consequences.
+Do not use pretrained factual knowledge, remembered news, general company knowledge, information from previous calls, or assumptions about industries/professions.
+Reference only supplied IDs. Never invent source IDs, evidence IDs, URLs, authors, publication dates, organizations, or numbers.
+Distinguish demonstrated facts from possible implications.
+Explicitly surface uncertainty and limitations.
+If evidence is insufficient, return UNKNOWN or leave fields empty. UNKNOWN is acceptable.
+Fewer supported claims are preferable to many weak claims.
+Avoid hype and sensational framing.
+Do not assume job displacement.
+Do not force career, upskill, industry, or student implications.
+Return only the requested structured output.

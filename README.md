@@ -6,9 +6,15 @@ The long-term flow is:
 
 ```text
 Discover AI developments
--> research and source-ground them
--> normalize and deduplicate stories
--> analyze/classify/score them
+-> normalize and cluster candidate coverage
+-> build one-cluster EvidencePacks
+-> run isolated closed-world analysis
+-> validate claim-level provenance
+-> create verified story analysis
+-> score validated editorial angles
+-> select stories for content generation
+-> generate grounded title metadata
+-> prepare researched-hashtag data contracts
 -> generate platform-independent content
 -> render media
 -> distribute through platform adapters
@@ -21,6 +27,7 @@ Instagram Reels is the first distribution target, but the core architecture is p
 ## Project Structure
 
 - `src/discovery/` finds candidate AI developments and story signals.
+- `src/intelligence/` normalizes candidates, clusters duplicate coverage, builds one-cluster evidence packs, validates claim provenance, creates verified story boundaries, scores angles, and prepares grounded title/hashtag metadata.
 - `src/research/` gathers sources and grounds candidate stories in evidence.
 - `src/analysis/` normalizes, deduplicates, classifies, and scores stories.
 - `src/content/` produces platform-independent content plans, scripts, and metadata.
@@ -35,4 +42,4 @@ Instagram Reels is the first distribution target, but the core architecture is p
 
 ## Current Status
 
-This repository contains the initial Python project structure, foundational domain models, and the first content-generation layer for converting a grounded `Story` into an `Article` and platform-independent short-video plan.
+This repository contains the initial Python project structure, foundational domain models, the first content-generation layer, a deterministic rendering proof, and a small testable intelligence pipeline for candidate normalization, clustering, evidence packs, claim validation, verified analysis, angle scoring, editorial selection, grounded titles, and hashtag metadata contracts. It does not perform live automated news discovery yet. Current hashtag popularity is not inferred by the LLM; live/current hashtag research will be connected separately.

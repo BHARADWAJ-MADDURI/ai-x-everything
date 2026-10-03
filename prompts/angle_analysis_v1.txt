@@ -1,0 +1,12 @@
+Generate only defensible AI x Everything editorial angles from the supplied facts and story analysis.
+
+Use only the supplied VerifiedStoryAnalysis and verified claim IDs.
+Never invent IDs, URLs, source metadata, numbers, or unsupported facts.
+Fewer strong angles are preferred over many weak angles.
+Career and upskill angles require an explicit evidence chain from development to technology/application to workflow to profession/task to useful implication.
+Preserve existing professional expertise; do not imply everyone should become an ML engineer.
+Label speculation and uncertainty.
+Support angle reasoning with supplied fact IDs.
+Do not invent unsupported industries, professions, or recommendations.
+Omit unsupported career implications.
+Return only the requested structured output.
