@@ -14,6 +14,7 @@ Discover AI developments
 -> validate claim-level provenance
 -> create verified story analysis
 -> score validated editorial angles
+-> plan daily editorial recommendations
 -> select stories for content generation
 -> generate grounded title metadata
 -> prepare researched-hashtag data contracts
@@ -30,6 +31,7 @@ Instagram Reels is the first distribution target, but the core architecture is p
 
 - `src/discovery/` finds candidate AI developments from replaceable providers, normalizes discovery metadata, and deduplicates obvious duplicate URLs before research.
 - `src/intelligence/` normalizes candidates, clusters duplicate coverage, builds one-cluster evidence packs, validates claim provenance, creates verified story boundaries, scores angles, and prepares grounded title/hashtag metadata.
+- `src/editorial/` plans what should be published next using timing, lifecycle state, angle history, bundle suggestions, evergreen opportunities, and human decision records.
 - `src/research/` safely retrieves public sources, extracts useful text, chunks bounded evidence, and preserves provenance for the verified intelligence pipeline.
 - `src/analysis/` normalizes, deduplicates, classifies, and scores stories.
 - `src/content/` produces platform-independent content plans, scripts, and metadata.
@@ -54,6 +56,32 @@ Live Sources
 -> Retrieval
 -> Evidence Acquisition
 -> Existing Verified Intelligence Pipeline
+```
+
+Editorial planning boundary:
+
+```text
+Verified Stories
+-> Editorial Planner
+-> Timing + Lifecycle + Angle History
+-> Daily Content Plan
+-> Human Decision
+-> future content generation
+```
+
+Local internal editorial dashboard:
+
+```text
+Editorial Planner
+-> Editorial Command Center
+-> Human Decision
+-> future Content Package
+```
+
+Launch the LOCAL INTERNAL EDITORIAL DASHBOARD with:
+
+```bash
+streamlit run dashboard/app.py
 ```
 
 The live discovery demo is manually invoked and bounded. It does not perform autonomous publishing, platform automation, or daily scheduling. Current hashtag popularity is not inferred by the LLM; Step 6 only preserves relevance signals when no defensible current reach data is available.
