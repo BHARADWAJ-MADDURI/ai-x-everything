@@ -1,0 +1,23 @@
+[
+  {
+    "name": "MIT News AI",
+    "url": "https://news.mit.edu/rss/topic/artificial-intelligence2",
+    "source_type": "news",
+    "enabled": true,
+    "topics": ["ai research", "ai science", "ai education"]
+  },
+  {
+    "name": "Google AI Blog",
+    "url": "https://www.blog.google/technology/ai/rss/",
+    "source_type": "company",
+    "enabled": true,
+    "topics": ["ai models", "ai agents", "ai research", "consumer technology"]
+  },
+  {
+    "name": "OpenAI News",
+    "url": "https://openai.com/news/rss.xml",
+    "source_type": "company",
+    "enabled": true,
+    "topics": ["ai models", "ai agents", "ai research"]
+  }
+]

@@ -6,6 +6,8 @@ The long-term flow is:
 
 ```text
 Discover AI developments
+-> retrieve public source material
+-> acquire bounded evidence with provenance
 -> normalize and cluster candidate coverage
 -> build one-cluster EvidencePacks
 -> run isolated closed-world analysis
@@ -26,9 +28,9 @@ Instagram Reels is the first distribution target, but the core architecture is p
 
 ## Project Structure
 
-- `src/discovery/` finds candidate AI developments and story signals.
+- `src/discovery/` finds candidate AI developments from replaceable providers, normalizes discovery metadata, and deduplicates obvious duplicate URLs before research.
 - `src/intelligence/` normalizes candidates, clusters duplicate coverage, builds one-cluster evidence packs, validates claim provenance, creates verified story boundaries, scores angles, and prepares grounded title/hashtag metadata.
-- `src/research/` gathers sources and grounds candidate stories in evidence.
+- `src/research/` safely retrieves public sources, extracts useful text, chunks bounded evidence, and preserves provenance for the verified intelligence pipeline.
 - `src/analysis/` normalizes, deduplicates, classifies, and scores stories.
 - `src/content/` produces platform-independent content plans, scripts, and metadata.
 - `src/rendering/` turns content plans into media assets.
@@ -42,4 +44,16 @@ Instagram Reels is the first distribution target, but the core architecture is p
 
 ## Current Status
 
-This repository contains the initial Python project structure, foundational domain models, the first content-generation layer, a deterministic rendering proof, and a small testable intelligence pipeline for candidate normalization, clustering, evidence packs, claim validation, verified analysis, angle scoring, editorial selection, grounded titles, and hashtag metadata contracts. It does not perform live automated news discovery yet. Current hashtag popularity is not inferred by the LLM; live/current hashtag research will be connected separately.
+This repository contains the initial Python project structure, foundational domain models, the first content-generation layer, a deterministic rendering proof, a small testable intelligence pipeline, and a bounded live discovery/research layer.
+
+Current architecture boundary:
+
+```text
+Live Sources
+-> Discovery
+-> Retrieval
+-> Evidence Acquisition
+-> Existing Verified Intelligence Pipeline
+```
+
+The live discovery demo is manually invoked and bounded. It does not perform autonomous publishing, platform automation, or daily scheduling. Current hashtag popularity is not inferred by the LLM; Step 6 only preserves relevance signals when no defensible current reach data is available.
