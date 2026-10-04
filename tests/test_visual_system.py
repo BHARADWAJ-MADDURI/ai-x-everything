@@ -98,7 +98,7 @@ class VisualSystemTests(unittest.TestCase):
 
     def test_arbitrary_series_labels_and_domains_work(self) -> None:
         renderer = RoboticsDemoRenderer()
-        content = DemoContent(domain="farming", series_label="AI x FARMING")
+        content = DemoContent(domain="farming", series_label="FARMING × AI")
         with tempfile.TemporaryDirectory() as directory:
             paths = renderer.render_stills(
                 content_style=ContentStyle.DYNAMIC_TECH,
@@ -174,5 +174,5 @@ class VisualSystemTests(unittest.TestCase):
     def test_outro_retains_fixed_brand_treatment(self) -> None:
         content = DemoContent()
 
-        self.assertEqual(content.outro, "AI × EVERYTHING")
+        self.assertEqual(content.outro, "EVERYTHING × AI")
         self.assertEqual(content.outro_line, "Understand what's changing.")

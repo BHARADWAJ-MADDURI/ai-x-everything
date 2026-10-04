@@ -1,4 +1,4 @@
-Generate only defensible AI x Everything editorial angles from the supplied facts and story analysis.
+Generate only defensible Everything × AI editorial angles from the supplied facts and story analysis.
 
 Use only the supplied VerifiedStoryAnalysis and verified claim IDs.
 Never invent IDs, URLs, source metadata, numbers, or unsupported facts.

@@ -30,12 +30,12 @@ class DemoContent:
     """Deterministic content for the Step 4B visual proof."""
 
     domain: str = "robotics"
-    series_label: str = "AI × ROBOTICS"
+    series_label: str = "ROBOTICS × AI"
     headline: str = "Robots are learning to understand natural-language instructions."
     technology_terms: tuple[str, str, str] = ("VISION", "LANGUAGE", "ACTION")
     result_label: str = "ROBOT ACTION"
     impact: str = "This could change how robots work alongside people."
-    outro: str = "AI × EVERYTHING"
+    outro: str = "EVERYTHING × AI"
     outro_line: str = "Understand what's changing."
 
 

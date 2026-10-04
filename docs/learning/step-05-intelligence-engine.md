@@ -56,7 +56,7 @@ The current system prefers precision. It may miss some weak or ambiguous opportu
 
 ## Prefer Missing Weak Angles
 
-AI × Everything should not force AI into every domain or profession. Missing a weak angle is acceptable; inventing one damages trust.
+Everything × AI should not force AI into every domain or profession. Missing a weak angle is acceptable; inventing one damages trust.
 
 ## Current Limitations
 

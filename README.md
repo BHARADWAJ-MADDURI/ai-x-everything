@@ -1,6 +1,6 @@
-# AI × Everything
+# Everything × AI
 
-AI × Everything is an AI intelligence and multi-platform content pipeline.
+Everything × AI is an AI intelligence and multi-platform content pipeline.
 
 The long-term flow is:
 

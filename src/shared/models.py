@@ -4,7 +4,7 @@ from enum import Enum
 
 
 class Audience(Enum):
-    """Core audiences served by AI x Everything."""
+    """Core audiences served by Everything × AI."""
 
     STUDENT = "student"
     PROFESSIONAL = "professional"

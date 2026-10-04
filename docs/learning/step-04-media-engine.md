@@ -47,7 +47,7 @@ The same robotics demo content is rendered twice to prove art direction can chan
 
 ## Fixed Identity Across Themes
 
-Across styles, AI × Everything keeps the same vertical format, series-label behavior, safe-zone discipline, subtitle philosophy, four-scene editorial structure, and outro signature.
+Across styles, Everything × AI keeps the same vertical format, series-label behavior, safe-zone discipline, subtitle philosophy, four-scene editorial structure, and outro signature.
 
 ## Scene-Level Art Direction
 
@@ -67,7 +67,7 @@ The first response to empty space should be hierarchy, scale, spacing, and conte
 
 ## Hybrid Visual Language
 
-AI × Everything benefits from mixed visual language because the content often moves from editorial framing to technical explanation to human impact. A hybrid proof shows that the same canonical content can shift art direction by scene while preserving a recognizable publication identity.
+Everything × AI benefits from mixed visual language because the content often moves from editorial framing to technical explanation to human impact. A hybrid proof shows that the same canonical content can shift art direction by scene while preserving a recognizable publication identity.
 
 ## Stop Point for Local Renderer Polish
 
