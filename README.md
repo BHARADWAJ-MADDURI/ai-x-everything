@@ -69,6 +69,24 @@ Verified Stories
 -> future content generation
 ```
 
+Editorial format boundary:
+
+```text
+Verified Editorial Opportunities
+        ↓
+Format Recommendation
+        ↓
+┌──────────┬───────────┬─────────┐
+│ AI Brief │ Deep Dive │ Learn   │
+└──────────┴───────────┴─────────┘
+        ↓
+Human Approval
+        ↓
+Content Package
+        ↓
+future Renderer
+```
+
 Local internal editorial dashboard:
 
 ```text

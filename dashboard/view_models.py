@@ -211,10 +211,10 @@ def timing_label(post: RecommendedPost) -> str:
 def content_direction_label(angle: PotentialAngle | EvergreenItem) -> str:
     angle_type = angle.angle_type.value.replace("_", " ").title()
     if angle.angle_type in {AngleType.EXPLAINER, AngleType.TECHNOLOGY, AngleType.WORKFLOW_IMPACT}:
-        return f"DEEP DIVE - {angle_type}"
+        return f"Deep Dive - {angle_type}"
     if angle.angle_type is AngleType.NEWS:
-        return "THE AI BRIEF - News"
-    return f"LEARN - {angle_type}"
+        return "AI Brief - News"
+    return f"Learn - {angle_type}"
 
 
 def trust_summary(story: StoryPlanningInput) -> TrustSummary:

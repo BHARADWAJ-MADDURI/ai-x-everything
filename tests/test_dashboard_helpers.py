@@ -279,7 +279,7 @@ class DashboardHelperTests(unittest.TestCase):
         data = load_demo_dashboard_data()
         label = content_direction_label(data.stories[0].story.validated_angles[0])
 
-        self.assertIn("THE AI BRIEF", label)
+        self.assertIn("AI Brief", label)
 
     def test_selected_title_has_visible_helper_state(self) -> None:
         data = load_demo_dashboard_data()
