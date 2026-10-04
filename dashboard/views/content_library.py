@@ -1,25 +1,30 @@
 import streamlit as st
 
+from dashboard.view_models import evergreen_library_items, saved_library_items
+
 
 def render(data) -> None:
-    st.header("Content Library")
-    st.subheader("Evergreen Items")
-    if not data.evergreen_items:
+    st.header("Library")
+
+    st.subheader("Saved for Later")
+    saved = saved_library_items(data, st.session_state["decision_log"])
+    if not saved:
+        st.info("No saved items yet.")
+    for item in saved:
+        with st.container(border=True):
+            st.markdown(f"### {item.title}")
+            st.write(item.helper)
+            st.caption(item.status)
+
+    st.subheader("Evergreen")
+    evergreen = evergreen_library_items(data)
+    if not evergreen:
         st.info("No evergreen items available.")
-    for item in data.evergreen_items:
+    for item in evergreen:
         with st.container(border=True):
-            st.markdown(f"### {item.proposed_thesis}")
-            st.caption(f"Origin: {item.originating_story_id} | {item.angle_type.value} | {item.status.value}")
-            st.write(f"Audience: {', '.join(audience.value for audience in item.audience)}")
-            st.write(f"Review: {item.review_at.isoformat() if item.review_at else 'not scheduled'}")
+            st.markdown(f"### {item.title}")
+            st.write(item.helper)
+            st.caption(item.status)
 
-    st.subheader("Saved Items")
-    if not data.plan.saved_for_later:
-        st.info("No saved items.")
-    for post in data.plan.saved_for_later:
-        with st.container(border=True):
-            st.markdown(f"### {post.story_id}")
-            st.caption(f"{post.selected_angle.angle_type.value} | priority {post.priority:.3f}")
-
-    st.subheader("Follow-up Eligible / Unused Strong Angles")
-    st.info("Follow-up eligibility is available from angle history; no persistent publication history is loaded in demo mode.")
+    st.subheader("Follow-up Opportunities")
+    st.info("Follow-up candidates will appear here once publication history is available.")

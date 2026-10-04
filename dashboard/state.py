@@ -12,6 +12,8 @@ def ensure_dashboard_state(st) -> None:
     st.session_state.setdefault("selected_hashtags", set())
     st.session_state.setdefault("pending_confirmation", None)
     st.session_state.setdefault("content_packages", {})
+    st.session_state.setdefault("current_view", "Today")
+    st.session_state.setdefault("workflow_stage", "understand")
 
 
 def record_decision_in_session(

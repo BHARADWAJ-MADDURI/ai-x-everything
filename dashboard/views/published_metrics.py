@@ -4,6 +4,6 @@ from dashboard.view_models import metrics_empty_state
 
 
 def render(data) -> None:
-    st.header("Published & Metrics")
+    st.header("Published")
     st.info(metrics_empty_state())
-    st.caption("Future fields: published date, platform, angle, views, watch time, completion, likes, comments, shares, saves, follows.")
+    st.caption("Once Everything × AI starts publishing, this area will track performance and editorial learning.")

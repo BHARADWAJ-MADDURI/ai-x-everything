@@ -95,3 +95,38 @@ Step 7B keeps the editor in charge. The system recommends; the human decides.
 1. Sketch a Story Review screen that shows claim, evidence, and source without JSON.
 2. Add one decision-log entry by hand and identify what fields should be persisted later.
 3. Describe how Live mode should work once verified live orchestration exists.
+
+## UX Refactor — Guided Editorial Workflow
+
+The first dashboard version was organized around backend capabilities: Daily Desk, Discovery, Story Review, Content Library, Published & Metrics, bundle review, provenance inspection, angle selection, and content package metadata. That structure was technically correct, but a dry run showed it did not match the editor's morning job.
+
+The revised V1 workflow is organized around decisions:
+
+```text
+Today
+-> understand the top story
+-> choose direction, title, and hashtags
+-> create the draft
+-> approve for render
+-> return to Today
+```
+
+Review and Create are stages inside the selected story workflow, not primary navigation destinations. This keeps the sidebar focused on the editor's durable workspaces: Today, Library, Published, and secondary Discovery.
+
+Progressive disclosure is the central UX pattern. Today shows the headline, what happened, why it matters, timing, trust summary, status, and one primary next action. Claim IDs, package UUIDs, evidence IDs, raw ranking decimals, and model metadata stay out of the primary path. They remain available only where they help with trust or debugging.
+
+Action hierarchy matters. The old story card displayed Review, Approve, Save, Hold, and Reject as equal actions. The refactor gives each story one primary action based on state: Review Story, Create Draft, Review Draft, or View Ready Content. Save, Hold, and Reject are secondary.
+
+State visibility moved from the audit log into the interface. The audit log remains valuable, but the editor should see SAVED, HELD, APPROVED, DRAFT GENERATED, or READY FOR RENDER directly on the story. UI state is local Streamlit session state; domain state still lives in backend models such as `HumanEditorialDecision` and `PackageReviewState`.
+
+Trust language now translates backend semantics. A verified fact is shown as VERIFIED FACT. An inference is shown as INTERPRETATION / REASONED INFERENCE. Rejected or unestablished material is shown as NOT ESTABLISHED / REJECTED. The claim -> evidence -> source chain is preserved behind View Sources & Evidence without making the editor read internal identifiers.
+
+The Create stage previews actual generated content because a metadata summary cannot answer "what am I about to publish?" The editor now sees Reel hook, narration, scenes, CTA, Instagram caption and hashtags, plus compact previews for Blog, LinkedIn, X, TikTok, and YouTube.
+
+Story approval and render approval are separate. Approving a story means the editor accepts the story direction for draft generation. Approving for render reuses the existing `APPROVED_FOR_RENDER` package review state after validation. This preserves the content safety boundary while making the workflow feel continuous.
+
+Streamlit session state is enough for V1 because this is still a local internal command center. It holds selected story, selected angle/title/hashtags, generated packages, workflow stage, and recent decisions. Later persistence can move those records to a database without changing the core trust model.
+
+Interview talking point:
+
+> We initially built the dashboard around backend capabilities. A usability dry run exposed that technically correct information architecture was not the same as an effective user workflow. We redesigned around the editor's decisions while preserving the same underlying verification and provenance system.

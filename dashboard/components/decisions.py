@@ -2,9 +2,9 @@ import streamlit as st
 
 
 def render_decision_log(entries) -> None:
-    st.subheader("Decision Audit Log")
+    st.subheader("Recent Decisions")
     if not entries:
-        st.info("No human decisions recorded in this session.")
+        st.info("No editorial decisions recorded in this session.")
         return
     for entry in reversed(entries):
         st.write(entry.label)

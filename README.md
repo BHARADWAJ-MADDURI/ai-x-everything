@@ -74,8 +74,10 @@ Local internal editorial dashboard:
 ```text
 Editorial Planner
 -> Editorial Command Center
+-> Guided Story Review
 -> Human Decision
--> future Content Package
+-> Content Package Preview
+-> Approve for Render
 ```
 
 Content package boundary:
