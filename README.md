@@ -93,6 +93,22 @@ PNG Carousel
 future Renderer
 ```
 
+Production carousel media boundary:
+
+```text
+Verified Story
+-> Visual Role Recommendation
+-> Media Candidates
+-> Rights Validation
+-> Human Selection
+-> Normalize / Cache
+-> Editorial Hybrid Carousel Layout
+-> Visual QA
+-> Human Final Review
+```
+
+Media improves presentation only. Unknown-rights media is blocked, typography-only treatment is valid, and deterministic demos remain offline.
+
 Local internal editorial dashboard:
 
 ```text

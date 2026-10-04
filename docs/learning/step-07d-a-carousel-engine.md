@@ -143,6 +143,47 @@ The renderer-ready package structure can later support:
 
 Step 7D-A intentionally stops before video, TTS, music, publishing, scheduling, or asset APIs.
 
+## Step 7D-A.1: Production Art Direction Extension
+
+The production carousel path adds a media and visual-role boundary around the renderer.
+
+Visual role hierarchy:
+
+- approved source media
+- licensed media
+- grounded explainer diagram
+- grounded editorial graphic
+- typography-led fallback
+
+`TYPOGRAPHY` is a valid production result. A story does not require a photograph, and the renderer does not silently use unknown-rights imagery.
+
+Media assets record:
+
+- story ownership
+- source and original URL
+- local cached path
+- dimensions and MIME type
+- rights status
+- attribution requirement
+- crop strategy and visual role
+
+Rights states are deliberately conservative:
+
+- `APPROVED`
+- `ATTRIBUTION_REQUIRED`
+- `UNKNOWN`
+- `REJECTED`
+
+Only approved render states can enter final layout. Attribution-required assets must carry attribution text.
+
+The production demo renders a single selected direction:
+
+- `output/carousels/ai_brief_production_demo/`
+
+It uses fictional offline fixture copy and locally generated placeholder media to test visual rhythm without representing real current news or making network calls.
+
+The one correction pass fixed an image placement issue where media slides reserved the image region but did not paste the simulated asset into it. After rerendering, the contact sheet showed a coherent Editorial Hybrid sequence across diagram, media, data, and document-led treatments.
+
 ## Interview Questions
 
 1. Why should rendering accept validated package objects rather than raw discovered stories?

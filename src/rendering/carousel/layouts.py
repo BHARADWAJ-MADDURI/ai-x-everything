@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from src.rendering.carousel.models import CANVAS, CarouselSlide, CarouselSlideType, CarouselVariant
+from src.rendering.carousel.models import CANVAS, CarouselSlide, CarouselSlideType, CarouselVariant, EditorialComposition
 
 
 @dataclass(frozen=True)
@@ -49,6 +49,78 @@ def _editorial_layout(slide_type: CarouselSlideType) -> SlideLayout:
         why_box=(CANVAS.safe_left + 74, 840, CANVAS.safe_right, 1005),
         source_box=(CANVAS.safe_left, 1165, CANVAS.safe_right, 1215),
         visual_box=(700, 505, CANVAS.safe_right, 805),
+    )
+
+
+def production_layout_for_slide(slide: CarouselSlide) -> SlideLayout:
+    if slide.slide_type is CarouselSlideType.COVER:
+        return SlideLayout(
+            brand_box=(CANVAS.safe_left, 92, 520, 140),
+            label_box=(CANVAS.safe_left, 205, CANVAS.safe_right, 390),
+            headline_box=(CANVAS.safe_left, 420, CANVAS.safe_right, 500),
+            what_box=(CANVAS.safe_left, 570, CANVAS.safe_right, 970),
+            why_box=(CANVAS.safe_left, 1070, CANVAS.safe_right, 1140),
+            source_box=(CANVAS.safe_left, 1180, CANVAS.safe_right, 1235),
+            visual_box=(650, 92, CANVAS.safe_right, 170),
+        )
+    if slide.slide_type is CarouselSlideType.OUTRO:
+        return SlideLayout(
+            brand_box=(CANVAS.safe_left, 150, CANVAS.safe_right, 230),
+            label_box=(CANVAS.safe_left, 300, CANVAS.safe_right, 370),
+            headline_box=(CANVAS.safe_left, 500, CANVAS.safe_right, 760),
+            what_box=(CANVAS.safe_left, 830, CANVAS.safe_right, 920),
+            why_box=(CANVAS.safe_left, 990, CANVAS.safe_right, 1070),
+            source_box=(CANVAS.safe_left, 1145, CANVAS.safe_right, 1205),
+            visual_box=(CANVAS.safe_left, 405, CANVAS.safe_right, 465),
+        )
+    if slide.layout_composition is EditorialComposition.PHOTO_DOMINANT:
+        return SlideLayout(
+            brand_box=(CANVAS.safe_left, 92, 520, 138),
+            label_box=(CANVAS.safe_left, 155, CANVAS.safe_right, 200),
+            headline_box=(CANVAS.safe_left, 225, CANVAS.safe_right, 390),
+            what_box=(CANVAS.safe_left, 905, 520, 1085),
+            why_box=(570, 905, CANVAS.safe_right, 1085),
+            source_box=(CANVAS.safe_left, 1160, CANVAS.safe_right, 1230),
+            visual_box=(CANVAS.safe_left, 430, CANVAS.safe_right, 850),
+        )
+    if slide.layout_composition is EditorialComposition.DIAGRAM_EXPLAINER:
+        return SlideLayout(
+            brand_box=(CANVAS.safe_left, 92, 520, 138),
+            label_box=(CANVAS.safe_left, 155, CANVAS.safe_right, 200),
+            headline_box=(CANVAS.safe_left, 230, CANVAS.safe_right, 405),
+            what_box=(CANVAS.safe_left, 840, 515, 1020),
+            why_box=(560, 840, CANVAS.safe_right, 1020),
+            source_box=(CANVAS.safe_left, 1160, CANVAS.safe_right, 1230),
+            visual_box=(CANVAS.safe_left, 455, CANVAS.safe_right, 785),
+        )
+    if slide.layout_composition is EditorialComposition.DATA_EDITORIAL:
+        return SlideLayout(
+            brand_box=(CANVAS.safe_left, 92, 520, 138),
+            label_box=(CANVAS.safe_left, 155, CANVAS.safe_right, 200),
+            headline_box=(CANVAS.safe_left, 225, 620, 475),
+            what_box=(CANVAS.safe_left, 640, 525, 820),
+            why_box=(CANVAS.safe_left, 900, CANVAS.safe_right, 1075),
+            source_box=(CANVAS.safe_left, 1160, CANVAS.safe_right, 1230),
+            visual_box=(665, 245, CANVAS.safe_right, 760),
+        )
+    if slide.layout_composition is EditorialComposition.DOCUMENT_POLICY:
+        return SlideLayout(
+            brand_box=(CANVAS.safe_left, 92, 520, 138),
+            label_box=(CANVAS.safe_left, 155, CANVAS.safe_right, 200),
+            headline_box=(CANVAS.safe_left, 230, CANVAS.safe_right, 430),
+            what_box=(CANVAS.safe_left, 500, 525, 700),
+            why_box=(CANVAS.safe_left, 760, 525, 970),
+            source_box=(CANVAS.safe_left, 1160, CANVAS.safe_right, 1230),
+            visual_box=(610, 500, CANVAS.safe_right, 970),
+        )
+    return SlideLayout(
+        brand_box=(CANVAS.safe_left, 92, 520, 138),
+        label_box=(CANVAS.safe_left, 155, CANVAS.safe_right, 200),
+        headline_box=(CANVAS.safe_left, 250, CANVAS.safe_right, 520),
+        what_box=(CANVAS.safe_left, 610, CANVAS.safe_right, 775),
+        why_box=(CANVAS.safe_left, 860, CANVAS.safe_right, 1045),
+        source_box=(CANVAS.safe_left, 1160, CANVAS.safe_right, 1230),
+        visual_box=(CANVAS.safe_left, 1075, CANVAS.safe_right, 1125),
     )
 
 

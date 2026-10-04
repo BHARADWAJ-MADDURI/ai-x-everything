@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from datetime import datetime
 from enum import Enum
 from pathlib import Path
 
@@ -20,6 +21,125 @@ class CarouselQAStatus(Enum):
     PASS = "pass"
     WARNING = "warning"
     FAIL = "fail"
+
+
+class VisualRole(Enum):
+    SOURCE_MEDIA = "source_media"
+    LICENSED_MEDIA = "licensed_media"
+    EXPLAINER_DIAGRAM = "explainer_diagram"
+    EDITORIAL_GRAPHIC = "editorial_graphic"
+    TYPOGRAPHY = "typography"
+
+
+class MediaAssetType(Enum):
+    IMAGE = "image"
+
+
+class MediaSourceType(Enum):
+    OFFICIAL_SOURCE = "official_source"
+    LICENSED_PROVIDER = "licensed_provider"
+    LOCAL_DEMO = "local_demo"
+
+
+class MediaRightsStatus(Enum):
+    APPROVED = "approved"
+    ATTRIBUTION_REQUIRED = "attribution_required"
+    UNKNOWN = "unknown"
+    REJECTED = "rejected"
+
+
+class CropStrategy(Enum):
+    CENTER = "center"
+    TOP = "top"
+    BOTTOM = "bottom"
+    LEFT = "left"
+    RIGHT = "right"
+    CONTAIN = "contain"
+
+
+class EditorialComposition(Enum):
+    PHOTO_DOMINANT = "photo_dominant"
+    TEXT_EDITORIAL = "text_editorial"
+    DIAGRAM_EXPLAINER = "diagram_explainer"
+    DATA_EDITORIAL = "data_editorial"
+    DOCUMENT_POLICY = "document_policy"
+
+
+@dataclass(frozen=True)
+class FocalPoint:
+    x: float = 0.5
+    y: float = 0.5
+
+
+@dataclass(frozen=True)
+class MediaAsset:
+    asset_id: str
+    story_id: str
+    asset_type: MediaAssetType
+    source_type: MediaSourceType
+    source_url: str
+    original_url: str
+    local_path: Path | None
+    mime_type: str
+    width: int
+    height: int
+    license_status: MediaRightsStatus
+    license_name: str | None = None
+    attribution_required: bool = False
+    attribution_text: str | None = None
+    retrieved_at: datetime | None = None
+    crop_strategy: CropStrategy = CropStrategy.CENTER
+    focal_point: FocalPoint = field(default_factory=FocalPoint)
+    visual_role: VisualRole = VisualRole.TYPOGRAPHY
+
+
+@dataclass(frozen=True)
+class MediaCandidate:
+    asset: MediaAsset
+    relevance_note: str
+    rank: int
+    approved_for_render: bool = False
+
+
+@dataclass(frozen=True)
+class HumanVisualSelection:
+    story_id: str
+    visual_role: VisualRole
+    selected_asset_id: str | None = None
+    use_diagram: bool = False
+    use_typography: bool = False
+
+
+@dataclass(frozen=True)
+class DiagramNode:
+    node_id: str
+    label: str
+    supporting_claim_ids: list[str]
+
+
+@dataclass(frozen=True)
+class DiagramEdge:
+    from_node: str
+    to_node: str
+    label: str
+    supporting_claim_ids: list[str]
+
+
+@dataclass(frozen=True)
+class DiagramSpec:
+    story_id: str
+    nodes: list[DiagramNode]
+    edges: list[DiagramEdge]
+    supporting_claim_ids: list[str]
+
+
+@dataclass(frozen=True)
+class EditorialGraphicSpec:
+    story_id: str
+    graphic_type: str
+    label: str
+    value: str | None
+    supporting_claim_ids: list[str]
 
 
 @dataclass(frozen=True)
@@ -61,6 +181,13 @@ class CarouselSlide:
     item: AIBriefItem | None = None
     category: str | None = None
     source_label: str | None = None
+    visual_role: VisualRole = VisualRole.TYPOGRAPHY
+    media_asset: MediaAsset | None = None
+    media_attribution: str | None = None
+    layout_composition: EditorialComposition = EditorialComposition.TEXT_EDITORIAL
+    diagram_spec: DiagramSpec | None = None
+    graphic_spec: EditorialGraphicSpec | None = None
+    teasers: list[str] = field(default_factory=list)
     text_regions: list[TextRegion] = field(default_factory=list)
 
 
