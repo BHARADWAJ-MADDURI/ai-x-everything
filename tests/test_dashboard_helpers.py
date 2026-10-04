@@ -2,6 +2,7 @@ from datetime import date, datetime, timezone
 import unittest
 
 from dashboard.demo_data import load_demo_dashboard_data
+from dashboard.content_packages import generate_session_package, package_summary
 from dashboard.view_models import (
     audit_entry,
     bundle_story_sections,
@@ -193,6 +194,13 @@ class DashboardHelperTests(unittest.TestCase):
         angle_types = {angle.angle_type for angle in data.stories[0].story.validated_angles}
 
         self.assertIn(AngleType.NEWS, angle_types)
+
+    def test_dashboard_content_package_preview_uses_session_data(self) -> None:
+        data = load_demo_dashboard_data()
+        package = generate_session_package(data, data.plan.recommended_posts[0])
+
+        self.assertEqual(package.generation_metadata.provider, "fake")
+        self.assertTrue(package_summary(package))
 
 
 if __name__ == "__main__":

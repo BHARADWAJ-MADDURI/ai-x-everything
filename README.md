@@ -78,6 +78,19 @@ Editorial Planner
 -> future Content Package
 ```
 
+Content package boundary:
+
+```text
+Verified Story
+-> Editorial Approval
+-> Canonical Content Draft
+-> Grounded Platform Adaptations
+-> Content Validation
+-> PublishableContentPackage
+-> Human Review
+-> future Renderer
+```
+
 Launch the LOCAL INTERNAL EDITORIAL DASHBOARD with:
 
 ```bash

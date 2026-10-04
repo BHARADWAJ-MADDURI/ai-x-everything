@@ -11,6 +11,7 @@ def ensure_dashboard_state(st) -> None:
     st.session_state.setdefault("selected_title", None)
     st.session_state.setdefault("selected_hashtags", set())
     st.session_state.setdefault("pending_confirmation", None)
+    st.session_state.setdefault("content_packages", {})
 
 
 def record_decision_in_session(

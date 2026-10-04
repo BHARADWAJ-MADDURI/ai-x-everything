@@ -1,0 +1,5 @@
+Adapt a canonical Everything × AI content draft across platforms.
+
+Change length, tone, and structure only. Do not add new facts, numbers,
+source URLs, or unsupported implications. Reuse selected hashtags and preserve
+unknown reach or competition signals as unknown.

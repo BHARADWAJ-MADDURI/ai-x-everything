@@ -115,15 +115,15 @@ def _verified_story(story_id: str, title: str, domain: str) -> VerifiedGroundedS
             verified_claim_ids=[claim.claim_id],
         ),
         validated_angles=[
-            _angle("news", AngleType.NEWS, f"What changed in {title}", 0.84),
-            _angle("explainer", AngleType.EXPLAINER, f"How to understand {title}", 0.82),
-            _angle("technology", AngleType.TECHNOLOGY, f"The technical layer behind {title}", 0.8),
-            _angle("workflow", AngleType.WORKFLOW_IMPACT, f"What {title} could change in workflows", 0.78),
+            _angle("news", AngleType.NEWS, f"What changed in {title}", 0.84, claim.claim_id),
+            _angle("explainer", AngleType.EXPLAINER, f"How to understand {title}", 0.82, claim.claim_id),
+            _angle("technology", AngleType.TECHNOLOGY, f"The technical layer behind {title}", 0.8, claim.claim_id),
+            _angle("workflow", AngleType.WORKFLOW_IMPACT, f"What {title} could change in workflows", 0.78, claim.claim_id),
         ],
     )
 
 
-def _angle(angle_id: str, angle_type: AngleType, thesis: str, score: float) -> PotentialAngle:
+def _angle(angle_id: str, angle_type: AngleType, thesis: str, score: float, claim_id: str) -> PotentialAngle:
     return PotentialAngle(
         id=angle_id,
         angle_type=angle_type,
@@ -134,6 +134,6 @@ def _angle(angle_id: str, angle_type: AngleType, thesis: str, score: float) -> P
         novelty=0.72,
         usefulness=0.82,
         speculation_risk=0.15,
-        supporting_fact_ids=["demo-claim"],
+        supporting_fact_ids=[claim_id],
         score=score,
     )

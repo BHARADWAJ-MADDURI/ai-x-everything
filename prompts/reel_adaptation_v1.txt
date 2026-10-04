@@ -1,0 +1,5 @@
+Adapt a canonical Everything × AI content draft into a short-form video plan.
+
+Use only canonical draft facts and allowed claim IDs. Keep narration spoken,
+plain, and grounded. Do not choose copyrighted media assets. Preserve source
+reference needs for scenes that present source-specific factual material.
