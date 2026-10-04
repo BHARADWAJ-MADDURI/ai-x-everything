@@ -74,15 +74,21 @@ Editorial format boundary:
 ```text
 Verified Editorial Opportunities
         ↓
-Format Recommendation
-        ↓
-┌──────────┬───────────┬─────────┐
-│ AI Brief │ Deep Dive │ Learn   │
-└──────────┴───────────┴─────────┘
+Editorial Format
         ↓
 Human Approval
         ↓
-Content Package
+Grounded Content
+        ↓
+Approved for Render
+        ↓
+Carousel Director
+        ↓
+Art Direction + Layout
+        ↓
+Visual QA
+        ↓
+PNG Carousel
         ↓
 future Renderer
 ```
