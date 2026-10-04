@@ -22,10 +22,65 @@ ensure_dashboard_state(st)
 st.markdown(
     """
     <style>
-    .stApp { background: #f7f3ed; color: #1f2523; }
-    h1, h2, h3 { letter-spacing: 0; }
-    section[data-testid="stSidebar"] { background: #eee7db; }
-    div[data-testid="stMetric"] { background: #fffaf2; border: 1px solid #e0d6c8; padding: 12px; }
+    :root {
+      --exai-ink: #1f2523;
+      --exai-muted: #5f6661;
+      --exai-bg: #f7f3ed;
+      --exai-panel: #fffaf2;
+      --exai-border: #d9ccbb;
+      --exai-sidebar: #eee7db;
+      --exai-accent: #335c67;
+    }
+    .stApp {
+      background: var(--exai-bg);
+      color: var(--exai-ink);
+    }
+    .stApp, .stApp p, .stApp span, .stApp label, .stApp div,
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6,
+    .stMarkdown, .stCaptionContainer, [data-testid="stMarkdownContainer"],
+    [data-testid="stWidgetLabel"], [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"], [data-testid="stMetricDelta"] {
+      color: var(--exai-ink);
+    }
+    h1, h2, h3 {
+      letter-spacing: 0;
+      color: var(--exai-ink);
+    }
+    .stCaptionContainer, small, [data-testid="stCaptionContainer"] {
+      color: var(--exai-muted);
+    }
+    section[data-testid="stSidebar"] {
+      background: var(--exai-sidebar);
+      color: var(--exai-ink);
+    }
+    section[data-testid="stSidebar"] * {
+      color: var(--exai-ink);
+    }
+    div[data-testid="stMetric"],
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+      background: var(--exai-panel);
+      border-color: var(--exai-border);
+    }
+    div[data-testid="stMetric"] {
+      border: 1px solid var(--exai-border);
+      padding: 12px;
+    }
+    .stButton button {
+      background: #fdf8ef;
+      border: 1px solid var(--exai-border);
+      color: var(--exai-ink);
+    }
+    .stButton button:hover {
+      border-color: var(--exai-accent);
+      color: var(--exai-ink);
+    }
+    input, textarea, select {
+      color: var(--exai-ink) !important;
+      background: #fffdf8 !important;
+    }
+    a {
+      color: var(--exai-accent);
+    }
     </style>
     """,
     unsafe_allow_html=True,
